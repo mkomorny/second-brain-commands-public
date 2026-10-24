@@ -1,0 +1,81 @@
+HOW TO USE: second-brain-commands
+===================================
+
+PURPOSE
+  Provide a standardized, fast slash-command and prompt system for interacting
+  with your personal Second Brain MCP server across all AI apps on this PC
+  (Claude Desktop, Claude Code, Grok CLI, Antigravity/Gemini, and Cursor).
+  Enables instant semantic retrieval, memory lookups, dated note append,
+  knowledge graph exploration, and lifecycle management while strictly enforcing
+  the mandatory pre-edit approval policy.
+
+CAPABILITIES
+  - Instant semantic recall with intent-framing and graph expansion (--hops)
+  - Full un-truncated content inspection via entry ID
+  - Chronological browsing of recent memories, tasks, and decisions
+  - Knowledge graph traversal to discover directly linked memories
+  - Structured memory creation with inline hashtags (#work, #task) and volatility flags (!durable, !state, !volatile)
+  - In-place appending of progress updates with automatic date-stamps
+  - Safe memory updates, deprecation/canonical status management, and permanent deletion
+  - Universal pre-edit safety gate: always displays exact text, tags, volatility, and rationale before touching write tools
+  - Automated session synchronization briefings (/brain sync) and multi-topic digests (/brain digest)
+
+USE CASES
+  - "What did we decide about the Live Actions UI architecture last week?"
+  - Quickly storing a new studio workflow, shortcut, or project constraint
+  - Checking recent commitments before starting a coding session
+  - Tracing the evolution of a decision through linked memories in the graph
+  - Changing an outdated decision to deprecated so it won't pollute future recalls
+  - Running identical second brain commands across Claude, Grok, and Antigravity
+
+IDEAS
+  - Type `/brain sync` at the beginning of any chat to immediately prime the AI
+  - Use `/brain save [note] #task !state` when agreeing on a new to-do item
+  - Pair `/brain recall [topic] -h 1` when investigating why a architectural choice was made
+  - Run `/brain digest` on Monday mornings to see what was captured across all sessions
+  - Use `/brain status [id] canonical` to lock critical foundational decisions against overwrites
+
+PROMPTS YOU CAN PASTE
+  /brain help
+
+  /brain sync Live Actions Helper
+
+  /brain recall audio buffer rendering --hops 1 --topK 5
+
+  /brain recent 8
+
+  /brain get mem_8f93a1
+
+  /brain save Decided to use WebView2 with Riso Art Studio theme for desktop UI #live-actions #decision !durable
+
+  /brain append mem_8f93a1 Shipped Phase 1 decision round with 44 renders tested
+
+  /brain connections mem_8f93a1
+
+  /brain link mem_8f93a1 mem_3b20c4 supersedes
+
+  /brain status mem_8f93a1 canonical
+
+  /brain digest
+
+EXAMPLE FLOW
+  You:   /brain save Always use 48kHz / 24-bit audio for stem generation #studio #audio !durable
+  Model: 📋 Proposed Second Brain Action:
+         - Tool: remember
+         - Target ID: NEW
+         - Exact Content: "Always use 48kHz / 24-bit audio for stem generation"
+         - Tags: ["studio", "audio"]
+         - Volatility: durable
+         - Source: antigravity
+         - Rationale: Storing permanent studio sampling rate preference.
+
+         👉 Do you approve this second brain update?
+  You:   Yes, approve
+  Model: [Calls remember tool]
+         Memory saved successfully (ID: mem_7a1b92).
+
+DEFAULT GOALS IF YOU DON'T NAME ONE
+  1. Retrieve relevant project context, past decisions, and active preferences via semantic recall
+  2. Display clear candidate memories with IDs for further exploration
+  3. Ensure no memory is saved or mutated without explicit user confirmation in chat
+  4. Protect the second-brain-cloudflare codebase and server configuration from unauthorized modifications
